@@ -2,7 +2,7 @@
 title: FrontEnd 첫 글입니다.
 date: 2026-07-20 22:00:00 +0900
 categories:
-  - Study
+  - Develop
   - FrontEnd
 tags:
   - FrontEnd

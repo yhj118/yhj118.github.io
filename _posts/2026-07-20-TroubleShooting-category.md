@@ -8,7 +8,7 @@ tags: # 태그 목록에 java를 넣어라
   - TroubleShooting 
 ---
 
-# Java
+# TroubleShooting
 <!-- 제목, html로 치면 <h1>Java</h1> -->
 
 이 글은 TroubleShooting 카테고리를 만들기 위한 테스트 글입니다.
