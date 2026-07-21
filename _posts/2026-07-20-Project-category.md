@@ -19,17 +19,17 @@ tags:
 - 예상 개발 기간: 2026.07.20 ~ 2026.08.31
 - 개발 방식: 요구사항 분석부터 테스트까지 단계별 진행
 - 개발 환경:
-  º운영체제: macOS
-  º개발 언어: JAVA
-  º백엔드 프레임워크: SpringBoot
-  º웹 구조: Spring MVC
-  º화면: Thymeleaf, HTML, CSS
-  º데이터베이스: MariaDB
-  ºDB접근 프레임워크: MyBatis
-  º빌드 도구: Gradle
-  º개발 도구: IntelliJ IDEA
-  º버전 관리: Git, GitHub
-  º서버: SpringBoot 내장 Tomcat
+  º운영체제: macOS <br>
+  º개발 언어: JAVA <br>
+  º백엔드 프레임워크: SpringBoot <br>
+  º웹 구조: Spring MVC <br>
+  º화면: Thymeleaf, HTML, CSS <br>
+  º데이터베이스: MariaDB <br>
+  ºDB접근 프레임워크: MyBatis <br>
+  º빌드 도구: Gradle <br>
+  º개발 도구: IntelliJ IDEA <br>
+  º버전 관리: Git, GitHub <br>
+  º서버: SpringBoot 내장 Tomcat <br>
 
 
 2. 요구사항 분석 
