@@ -30,7 +30,7 @@ tags:
  
 
 2. 요구사항 분석
-   ![설명](/assets/img/posts/requirement.png)
+   ![설명](/assets/img/requirement.png)
 
 3. ERD(테이블 정의서)
 
