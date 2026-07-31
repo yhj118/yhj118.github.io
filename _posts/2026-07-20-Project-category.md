@@ -16,16 +16,16 @@ tags:
 - 개발 형태: 개인 프로젝트
 - 예상 개발 기간: 2026.07.20 ~ 2026.08.31
 - 개발 환경
- 운영체제 : macOS
- 개발 언어 : JAVA
- 백엔드 프레임워크 : SpringBoot
- 화면 : Thymeleaf, HTML, CSS
- 웹 구조 : Spring MVC
- 데이터베이스 : MariaDB
- DB접근 프레임워크 : MyBatis
- 라이브러리 빌드 도구 : Gradle
- 개발 도구 : IntelliJ IDEA
- 서버 : SpringBoot 내장 Tomcat
+ 운영체제 : macOS <br>
+ 개발 언어 : JAVA <br>
+ 백엔드 프레임워크 : SpringBoot <br>
+ 화면 : Thymeleaf, HTML, CSS <br>
+ 웹 구조 : Spring MVC <br>
+ 데이터베이스 : MariaDB <br>
+ DB접근 프레임워크 : MyBatis <br>
+ 라이브러리 빌드 도구 : Gradle <br>
+ 개발 도구 : IntelliJ IDEA <br>
+ 서버 : SpringBoot 내장 Tomcat <br>
  버전 관리 : GitHub
  
 

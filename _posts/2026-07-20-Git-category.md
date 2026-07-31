@@ -1,13 +1,25 @@
 ---
-title: Git 첫 글입니다.
+title: GitHub 기본 명령어
 date: 2026-07-20 22:00:00 +0900
 categories:
   - Develop
-  - Git
+  - Github
 tags:
-  - Git
+  - Github
 ---
 
-# Git
+# Github
 
-이 글은 Git 카테고리를 만들기 위한 테스트 글입니다.
+cd ~/Documents/yhj118.github.io : 내 github 경로로 이동해줘 <br>
+git status : 현재 뭐가 바뀌었어? <br> 
+git add . : 바뀐 파일을 모두 git 저장에 포함시켜 <br> 
+git commit -m "프로젝트 요구사항 수정" : git add .한 걸 "@#$"라는 이름으로 하나의 버전으로 기억해줘 <br˘
+git push : 깃허브로 보내줘 <br>
+
+******
+cd(Change Directory) : 해당 경로로 이동하는 명령어 <br>
+~(/Users/dbgnswo 경로와 같음) : 홈폴더 <br>
+/ : 폴더 구문 <br>
+
+-> cd ~/Documents/yhj118.github.io는 홈폴더 안의 Documents 폴더 안의 yhj118.github.io 폴더로 이동해
+
