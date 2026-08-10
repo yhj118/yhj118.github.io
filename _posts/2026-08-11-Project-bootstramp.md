@@ -10,11 +10,11 @@ tags:
 
 # Intranet Groupware
 
-1. 부트스트랩?
+- 부트스트랩?
 CSS와 JS를 미리 만들어놓아서 UI를 쉽게 적용하는 기술. <br>
 부트스트랩이 없다면 CSS와 JS를 개발자가 하나하나 작성해야 한다. <br>
 
-2. 부트스트랩 다운로드 ~ 적용하기. <br>
+- 부트스트랩 다운로드 ~ 적용하기. <br>
   1) CSS와 JS는 정적 파일이므로 관리할 폴더를 생성. <br>
     경로는 src/main/resource/static에 tabler 폴더와 하위로 css & js 폴더를 생성한다. <br>
     static 폴더 바로 아래에 있는 css와 js 폴더는 부트스트랩인 tabler가 아닌 개발하면서 별도로 작성한 소스를 관리하는 곳이며 이것도 생성한다. <br>
@@ -60,7 +60,7 @@ CSS와 JS를 미리 만들어놓아서 UI를 쉽게 적용하는 기술. <br>
 </html>
 ```
 
-<!DOCTYPE html>
+
 <html lang="ko" xmlns:th="http://www.thymeleaf.org"> <!-- xmlns?? Thymeleaf 문법 사용을 위한 선언 -->
 <head>
     <meta charset="UTF-8">
