@@ -1,6 +1,6 @@
 ---
-title: 프로젝트 기획서
-date: 2026-07-20 22:00:00 +0900
+title: 부트스트랩 적용
+date: 2026-08-11 22:00:00 +0900
 categories: 
   - Project
   - Intranet GroupWare
@@ -9,9 +9,6 @@ tags:
 ---
 
 # Intranet Groupware
-<!-- 제목, html로 치면 <h1>Java</h1> -->
-
-** 부트스트랩 적용
 
 1. 부트스트랩?
 CSS와 JS를 미리 만들어놓아서 UI를 쉽게 적용하는 기술.

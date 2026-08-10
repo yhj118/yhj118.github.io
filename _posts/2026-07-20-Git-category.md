@@ -15,6 +15,7 @@ git status : 현재 뭐가 바뀌었어? <br>
 git add . : 바뀐 파일을 모두 git 저장에 포함시켜 <br> 
 git commit -m "test" : git add .한 걸 "test"라는 이름으로 하나의 버전으로 기억해줘 <br˘
 git push : git commit한 걸 깃허브로 보내줘 <br>
+bundle exec jekyll serve : github 블로그 실행
 
 ******
 cd(Change Directory) : 해당 경로로 이동하는 명령어 <br>
