@@ -1,6 +1,6 @@
 ---
 title: 부트스트랩 적용
-date: 2026-08-11 22:00:00 +0900
+date: 2026-08-11
 categories: 
   - Project
   - Intranet GroupWare

@@ -1,6 +1,6 @@
 ---
 title: 프로젝트 기획서
-date: 2026-07-20 22:00:00 +0900
+date: 2026-07-20
 categories: 
   - Project
   - Intranet GroupWare
