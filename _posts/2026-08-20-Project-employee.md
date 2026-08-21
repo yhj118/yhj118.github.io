@@ -117,7 +117,7 @@ View에서는 다음과 같이 사용할 수 있다.
 
 최종적으로 구현된 사원 등록 화면이다.
 
-![사원 등록 화면](/assets/images/groupware/register1.png)
+![사원 등록 화면](/assets/img/register1.png)
 
 ## 사원 수정 구현
 
