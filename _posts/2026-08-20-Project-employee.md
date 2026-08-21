@@ -14,20 +14,20 @@ tags:
 
 1. HTML UI 적용 (Bootstrap Tabler)
 2. DB `employee`, `department` 테이블 생성
-  - `employee.department_id(FK)`는 `department.department_id(PK)`를 참조
-  - `department : employee = 1 : N`
+- `employee.department_id(FK)`는 `department.department_id(PK)`를 참조
+- `department : employee = 1 : N`
 3. MyBatis Mapper Interface / Mapper XML 작성
 4. Service 작성
 5. Controller 작성
 6. JavaScript ID 중복 및 유효성 검사
 7. 주소 API 연동
 8. 프로필 사진 업로드 구현
-  - `MultipartFile` 사용
-  - JPG / JPEG / PNG 제한
-  - 5MB 용량 제한
-  - UUID 파일명 생성
-  - `uploads/profile` 경로에 실제 파일 저장
-  - DB에는 이미지가 아닌 이미지 경로만 저장
+- `MultipartFile` 사용
+- JPG / JPEG / PNG 제한
+- 5MB 용량 제한
+- UUID 파일명 생성
+- `uploads/profile` 경로에 실제 파일 저장
+- DB에는 이미지가 아닌 이미지 경로만 저장
 9. 사원 등록 전체 테스트
 
 ### 주요 이슈
@@ -112,6 +112,12 @@ View에서는 다음과 같이 사용할 수 있다.
                                                              ▼
                                                         Controller
 ```
+
+## 사원 등록 구현 결과
+
+최종적으로 구현된 사원 등록 화면이다.
+
+![사원 등록 화면](/assets/images/groupware/register1.png)
 
 ## 사원 수정 구현
 
