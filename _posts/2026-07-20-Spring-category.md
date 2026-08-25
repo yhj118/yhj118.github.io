@@ -246,7 +246,6 @@ findAllEmployee()
 ```
 
 여기서 Mapper 인터페이스의 반환 타입은 `List<EmpResponse>`이지만 XML의 `resultType`에는 `List<EmpResponse>`가 아닌 `EmpResponse`를 작성한다.
-
 그 이유는 `resultType`이 **조회 결과 한 행(row)을 어떤 타입의 객체로 만들 것인지**를 나타내기 때문이다.
 
 예를 들어 DB에서 사원 3명이 조회된다면,
