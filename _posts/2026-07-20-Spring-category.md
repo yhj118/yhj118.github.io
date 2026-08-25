@@ -1,15 +1,12 @@
 ---
-
 title: MyBatis Mapper 인터페이스와 XML
 date: 2026-07-20 22:00:00 +0900
 categories:
-
-* Develop
-* Spring
-  tags:
-* Spring
-* MyBatis
-
+  - Develop
+  - Spring
+tags:
+  - Spring
+  - MyBatis
 ---
 
 # MyBatis Mapper 인터페이스와 XML
