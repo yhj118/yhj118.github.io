@@ -1,5 +1,5 @@
 ---
-title: 사원 등록, 수정, 삭제 개발일지
+title: 사원 CRUD 개발일지
 date: 2026-08-20
 categories:
   - Project
@@ -16,23 +16,23 @@ tags:
 
 ## 구현 과정
 
-1. HTML UI 적용 (Bootstrap Tabler)
+1) HTML UI 적용 (Bootstrap Tabler)
 
-2. DB `employee`, `department` 테이블 생성
+2) DB `employee`, `department` 테이블 생성
   - `employee.department_id(FK)`는 `department.department_id(PK)`를 참조
   - `department : employee = 1 : N`
 
-3. MyBatis Mapper Interface / Mapper XML 작성
+3) MyBatis Mapper Interface / Mapper XML 작성
 
-4. Service 작성
+4) Service 작성
 
-5. Controller 작성
+5) Controller 작성
 
-6. JavaScript ID 중복 및 유효성 검사
+6) JavaScript ID 중복 및 유효성 검사
 
-7. 주소 API 연동
+7) 주소 API 연동
 
-8. 프로필 사진 업로드 구현
+8) 프로필 사진 업로드 구현
   - `MultipartFile` 사용
   - JPG / JPEG / PNG 제한
   - 5MB 용량 제한
@@ -40,13 +40,13 @@ tags:
   - `uploads/profile` 경로에 실제 파일 저장
   - DB에는 이미지가 아닌 이미지 경로만 저장
 
-9. 사원번호 자동생성 구현
+9) 사원번호 자동생성 구현
   - 현재 연도 4자리 + 난수 4자리 조합(예: `20260037`)
   - DB에 `UNIQUE` 제약조건 적용
   - 생성된 사원번호가 기존 DB에 존재하는지 조회 및 중복된 경우 새로운 난수를 생성하여 다시 조회
   - 중복되지 않은 사원번호가 생성될 때까지 `while(true)` 반복문 사용
 
-10. 사원 등록 전체 테스트
+10) 사원 등록 전체 테스트
 
 ## 주요 이슈
 
@@ -139,7 +139,56 @@ View에서는 다음과 같이 사용할 수 있다.
 
 ---
 
-# 2. 사원 수정
+# 2. 사원 조회 및 수정
+
+## 구현 과정
+
+1) MyBatis Mapper Interface / Mapper XML 작성
+
+2) Service 작성
+
+3) Controller 작성  
+  - 사원 정보 페이지 / 사원 정보 수정 페이지는 authentication를 통해 security Context에 저장된 로그인 ID를 추출하여 사원 정보 조회
+    (security Context는 세션에 저장되어 있음)
+
+4) view 작성
+myPage.html
+ - 데이터 표현은 더미리프 문법 th:if를 통해 표현.
+myPageModify.html 작성
+ - 데이터 표현은 더미리프 문법 th:if를 통해 표현.
+ - 정보를 수정을 할 수 있도록 <input>에 기존 데이터를 표현.
+
+## 주요 이슈
+- 프로필 사진 수정 후 사원 정보 페이지에서 사진이 깨지거나 변경되지 않음.
+사진 폴더의 경로가 정적 리소스 폴더인 static 아래에 있었기 때문에 사진을 읽을 수 없었으며 서버를 재실행해야만 다시 사진을 불러올 수 있었음.
+따라서 폴더의 경로를 static 리소스 영역에서 빼낸 후 WebConfig 클래스를 작성하여 해결하였다.
+WebConfig 클래스는 프로젝트와 외부 파일을 연결하는 클래스이다.
+
+- View에서 form 태그의 action의 경우 더미리프 문법 @{/goEmpModify}로 표현.
+스프링 시큐리티를 적용함으로써 CSRF 토큰 처리를 위해 사용했으며 일반 "/goEmpModify}"로 표현 시 404에러가 발생할 수 있음.
+
+- 사원 정보 수정을 할 때 데이터를 수정하지 않고 수정 시, JS 패턴에 의해 수정이 되지 않음. 
+첫 번째 ID 이슈,  
+ID 중복확인을 거치지 않으면 JS에 의해 중복확인을 요구.
+따라서 중복확인 버튼을 true로 선언하여 페이지 로딩 시 중복확인을 이미 실행한 상태로 변경.
+if문을 활용하여 중복확인이 false인 경우(사용자가 ID를 수정했을 경우 false가 됨)에만 중복확인 요구를 발동하도록 수정.
+
+두 번째 비밀번호 이슈, 
+비밀번호를 변경하지 않는 경우 공백 데이터가 서버로 전송하도록 변경 + JS에선 공백 아닐 경우에만 JS 패턴 적용.
+이후 xml에서 if문을 활용하여 공백이지 않을 경우에만 데이터를 update 하도록 수정.
+공백 데이터를 활용함으로써 기존 BCrypt 비밀번호 또한 보존 가능해짐.
+
+세 번째 프로필 사진 이슈, 
+사진을 변경하지 않을 경우 컨트롤러와 xml에서 if문으로 사진 업로드 로직을 수행하지 않도록 예외 처리.
+
+
+
+
+
+
+---
+
+# 4. 사원 전체 조회
 
 > 구현 예정
 

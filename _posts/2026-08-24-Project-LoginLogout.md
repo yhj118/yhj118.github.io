@@ -1,5 +1,5 @@
 ---
-title: 사원 로그인 및 로그아웃 개발일지(feat. Spring Security 프레임워크)
+title: 로그인 및 로그아웃 개발일지(feat. Spring Security 프레임워크)
 date: 2026-08-24 22:00:00 +0900
 categories:
   - Project
@@ -18,6 +18,7 @@ tags:
 
 - 기존 로그인 구현은 DB 조회 후 사용자 정보에 세션을 선언하여 구현했다면 Spring Security는 좀 더 실무에 맞게 구현.
 - Spring Security 또한 세션 방식의 구현이며 둘의 차이는 전자는 직접 코드를 작성하며 관리, 후자는 프레임워크가 관리.
+- 특징으론 컨트롤러를 사용하지 않는다.
 
 ### 2. Spring Security로 로직 구현 순서
 
@@ -37,50 +38,78 @@ tags:
 
 5. SecurityConfig 클래스에서 로그아웃 및 로그인 상태 유지 로직 추가
 
-### 3. 구현도
+6. 로그인 후 Spring Security가 인증된 Authentication 객체인 사용자 정보를 SecurityContext에 저장.
+- SecurityContext를 HttpSession에 저장하여 로그인 유지
 
-```mermaid
-flowchart TD
 
-    A[사용자 로그인 폼<br/>loginKey + password 입력]
-    --> B[POST /goLogin]
+### 3. 플로우차트
 
-    B --> C[Spring Security<br/>UsernamePasswordAuthenticationFilter]
-
-    C --> D[AuthenticationManager / Provider]
-
-    D --> E[CustomUserDetailsService<br/>loadUserByUsername loginKey]
-
-    E --> F[AuthService]
-
-    F --> G[AuthMapper]
-
-    G --> H[(DB<br/>employee 테이블)]
-
-    H --> I[EmpResponse 반환<br/>employeeNum + password]
-
-    I --> J[EmpResponse → UserDetails 변환]
-
-    J --> K[Spring Security에<br/>UserDetails 반환]
-
-    K --> L[PasswordEncoder<br/>비밀번호 비교]
-
-    L --> M{비밀번호 일치?}
-
-    M -- 아니오 --> N[로그인 실패]
-
-    M -- 예 --> O[Authentication 생성]
-
-    O --> P[SecurityContext에<br/>Authentication 저장]
-
-    P --> Q[로그인 상태]
-
-    Q --> R[/openMain 이동]
-
-    R --> S[인증이 필요한 요청<br/>/myPage 등]
-
-    S --> T{authenticated?}
-
-    T -- 예 --> U[접근 허용]
-    T -- 아니오 --> V[/openLogin 이동]
+```text
+        [로그인 form submit 발생]
+                  │
+                  ▼
+            POST /goLogin http 요청
+                  │
+                  ▼
+      Spring Security Filter가 요청 수신
+                  │
+                  ▼
+      loginKey / password 값 추출
+                  │
+                  ▼
+       CustomUserDetailsService 호출
+                  │
+                  ▼
+    loadUserByUsername(loginKey) 실행
+                  │
+                  ▼
+             AuthService 호출
+                  │
+                  ▼
+             AuthMapper 호출
+                  │
+                  ▼
+          employee 테이블 조회
+                  │
+                  ▼
+          EmpResponse 객체 반환
+                  │
+                  ▼
+       EmpResponse → UserDetails 변환
+                  │
+                  ▼
+      Spring Security에 UserDetails 반환
+                  │
+                  ▼
+       PasswordEncoder로 비밀번호 비교
+                  │
+          ┌───────┴───────┐
+          │               │
+         불일치             일치
+          │               │
+          ▼               ▼
+      로그인 실패      Authentication 생성
+                          │
+                          ▼
+               SecurityContext에 저장
+                          │
+                          ▼
+                     로그인 성공
+                          │
+                          ▼
+                    /openMain 이동
+                          │
+                          ▼
+              인증이 필요한 요청 발생
+                 예: /myPage
+                          │
+                          ▼
+                 인증 상태 확인
+                          │
+                 ┌────────┴────────┐
+                 │                 │
+               미인증              인증됨
+                 │                 │
+                 ▼                 ▼
+          /openLogin 이동       접근 허용
 ```
